@@ -26,6 +26,9 @@ jobs:
         pip install --user --upgrade buildozer cython==0.29.36 kivy
 
     - name: Build with Buildozer
+      env:
+        # python-for-android உடன் தடையின்றி வேலை செய்யக்கூடிய NDK பதிப்பு
+        ANDROID_NDK_HOME: /opt/android/ndk/25.2.9519653
       run: |
         export PATH=$PATH:~/.local/bin
         buildozer appclean
