@@ -16,6 +16,13 @@ jobs:
       with:
         python-version: '3.10'
 
+    - name: Set up Android NDK
+      uses: nttld/setup-ndk@v3
+      with:
+        ndk-version: r25b
+        version: 25.2.9519653
+        link-to-sdk: true
+
     - name: Install dependencies
       run: |
         sudo apt-get update
@@ -26,9 +33,6 @@ jobs:
         pip install --user --upgrade buildozer cython==0.29.36 kivy
 
     - name: Build with Buildozer
-      env:
-        # python-for-android உடன் தடையின்றி வேலை செய்யக்கூடிய NDK பதிப்பு
-        ANDROID_NDK_HOME: /opt/android/ndk/25.2.9519653
       run: |
         export PATH=$PATH:~/.local/bin
         buildozer appclean
