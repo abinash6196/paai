@@ -22,7 +22,8 @@ jobs:
         sudo apt-get install -y \
             git zip unzip openjdk-17-jdk python3-pip autoconf libtool pkg-config \
             zlib1g-dev libncurses5-dev libncursesw5-dev cmake libffi-dev libssl-dev
-        # பழைய வெர்ஷனுக்குப் பதிலாக சமீபத்திய கிட் (git) மூலமான லேட்டஸ்ட் வெர்ஷனை நிறுவுதல்
+        # pip-ன் புதிய பதிப்பால் வரும் பிழையைத் தவிர்க்க பழைய நிலையான பதிப்பைப் பயன்படுத்துதல்
+        python3 -m pip install --upgrade "pip<24.0"
         pip install --user --upgrade buildozer cython==0.29.36 kivy
         pip install --user --upgrade git+https://github.com/kivy/python-for-android.git
 
@@ -36,7 +37,6 @@ jobs:
         ANDROID_NDK_HOME=/usr/local/lib/android/sdk/ndk/25.2.9519653
         ANDROID_NDK_ROOT=/usr/local/lib/android/sdk/ndk/25.2.9519653
         ANDROID_NDK=/usr/local/lib/android/sdk/ndk/25.2.9519653
-        # NDK 25 பதிப்பு ரன்னரில் இல்லாவிட்டால் பில்ட் டவுன்லோட் செய்ய வழிவகை செய்தல்
         yes | buildozer -v android debug
 
     - name: Upload APK
