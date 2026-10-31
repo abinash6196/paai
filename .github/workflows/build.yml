@@ -22,8 +22,9 @@ jobs:
         sudo apt-get install -y \
             git zip unzip openjdk-17-jdk python3-pip autoconf libtool pkg-config \
             zlib1g-dev libncurses5-dev libncursesw5-dev cmake libffi-dev libssl-dev
-        pip install --upgrade pip
+        # பழைய வெர்ஷனுக்குப் பதிலாக சமீபத்திய கிட் (git) மூலமான லேட்டஸ்ட் வெர்ஷனை நிறுவுதல்
         pip install --user --upgrade buildozer cython==0.29.36 kivy
+        pip install --user --upgrade git+https://github.com/kivy/python-for-android.git
 
     - name: Build with Buildozer
       env:
