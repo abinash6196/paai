@@ -32,9 +32,9 @@ jobs:
         ANDROID_NDK: /usr/local/lib/android/sdk/ndk/25.2.9519653
       run: |
         export PATH=$PATH:~/.local/bin
-        export ANDROID_NDK_HOME=/usr/local/lib/android/sdk/ndk/25.2.9519653
-        export ANDROID_NDK_ROOT=/usr/local/lib/android/sdk/ndk/25.2.9519653
-        export ANDROID_NDK=/usr/local/lib/android/sdk/ndk/25.2.9519653
+        ANDROID_NDK_HOME=/usr/local/lib/android/sdk/ndk/25.2.9519653
+        ANDROID_NDK_ROOT=/usr/local/lib/android/sdk/ndk/25.2.9519653
+        ANDROID_NDK=/usr/local/lib/android/sdk/ndk/25.2.9519653
         # NDK 25 பதிப்பு ரன்னரில் இல்லாவிட்டால் பில்ட் டவுன்லோட் செய்ய வழிவகை செய்தல்
         yes | buildozer -v android debug
 
